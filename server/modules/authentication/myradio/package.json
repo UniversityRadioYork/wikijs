@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ury1350/passport-myradio": "1.0.3",
+    "@ury1350/passport-myradio": "1.1.1",
     "got": "^11.5.1"
   }
 }

@@ -48,10 +48,10 @@
   dependencies:
     "@types/node" "*"
 
-"@ury1350/passport-myradio@1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@ury1350/passport-myradio/-/passport-myradio-1.0.3.tgz#7a737aa11ef4b58b2554a1ac6de25f6b29df5945"
-  integrity sha512-ICMHJnWn850leD7T7+0JCx8O2F7PzfJoYP6G/qh/Gyj4eiiltpEkMiMpIUemN0jhFlodKzjyKP30s86rd5LtCw==
+"@ury1350/passport-myradio@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@ury1350/passport-myradio/-/passport-myradio-1.1.1.tgz#c0a95f1964180162a042eae4dbd6e2a6b2d4e837"
+  integrity sha512-BBXnYyCEEXt7QTuhTSLvAIN5LHGfkcHXB3Vkj4PEO7FYEo8o7jJp6HXcrmcCqXq73BVgjmyaYQpNrOaivy9AAQ==
   dependencies:
     got "^11.5.1"
     lodash "^4.17.19"
