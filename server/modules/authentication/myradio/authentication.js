@@ -95,7 +95,7 @@ module.exports = {
         // Pull up the list of their current non-MyRadio groups, to avoid removing any
         const externalGroups = (await user.$relatedQuery('groups').where('name', 'not like', 'MyRadio/%')) || []
 
-        const groupsToSet = _.union(myradioGroups, externalGroups)
+        const groupsToSet = _.union(_.uniq(myradioGroups), externalGroups)
 
         await WIKI.models.users.updateUser({
           id: user.id,
