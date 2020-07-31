@@ -1,0 +1,20 @@
+key: myradio
+title: MyRadio
+description: URY SSO
+author: Marks Polakovs
+logo: https://ury.org.uk/myradio/img/myradio-logo.svg
+isAvailable: true
+useForm: false
+props:
+    myradioApiBaseUrl:
+      type: String
+      hint: 'https://ury.org.uk/api'
+    myradioApiKey:
+      type: String
+      hint: "Requires AUTH_APIPERSONALINFO"
+    myradioBaseUrl:
+      type: String
+      hint: 'https://ury.org.uk/myradio'
+    websiteBaseUrl:
+      type: String
+      hint: 'https://ury.org.uk'
