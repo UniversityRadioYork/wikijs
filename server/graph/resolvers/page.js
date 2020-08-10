@@ -168,6 +168,31 @@ module.exports = {
       }
     },
     /**
+     * FETCH SINGLE PAGE BY PATH
+     */
+    async singleByPath (obj, args, context, info) {
+      let page = await WIKI.models.pages.getPage({
+        path: args.path,
+        locale: args.locale
+      })
+      if (page) {
+        if (WIKI.auth.checkAccess(context.req.user, ['manage:pages', 'delete:pages'], {
+          path: page.path,
+          locale: page.localeCode
+        })) {
+          return {
+            ...page,
+            locale: page.localeCode,
+            editor: page.editorKey
+          }
+        } else {
+          throw new WIKI.Error.PageViewForbidden()
+        }
+      } else {
+        throw new WIKI.Error.PageNotFound()
+      }
+    },
+    /**
      * FETCH TAGS
      */
     async tags (obj, args, context, info) {
