@@ -48,10 +48,10 @@
   dependencies:
     "@types/node" "*"
 
-"@ury1350/passport-myradio@1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@ury1350/passport-myradio/-/passport-myradio-1.1.1.tgz#c0a95f1964180162a042eae4dbd6e2a6b2d4e837"
-  integrity sha512-BBXnYyCEEXt7QTuhTSLvAIN5LHGfkcHXB3Vkj4PEO7FYEo8o7jJp6HXcrmcCqXq73BVgjmyaYQpNrOaivy9AAQ==
+"@ury1350/passport-myradio@1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@ury1350/passport-myradio/-/passport-myradio-1.1.2.tgz#d5a852039d9132de035f7c094a19bdfa24215dd1"
+  integrity sha512-FiWFR1VOVKFvws/wxu3MQJzLT+TahsV5GAtswx4ybLazflVSSgYqkfs6Us5E74yKPfcLuOKrrdF5qGp7w5J5KQ==
   dependencies:
     got "^11.5.1"
     lodash "^4.17.19"
@@ -112,6 +112,23 @@ got@^11.5.1:
   version "11.5.1"
   resolved "https://registry.yarnpkg.com/got/-/got-11.5.1.tgz#bf098a270fe80b3fb88ffd5a043a59ebb0a391db"
   integrity sha512-reQEZcEBMTGnujmQ+Wm97mJs/OK6INtO6HmLI+xt3+9CvnRwWjXutUvb2mqr+Ao4Lu05Rx6+udx9sOQAmExMxA==
+  dependencies:
+    "@sindresorhus/is" "^3.0.0"
+    "@szmarczak/http-timer" "^4.0.5"
+    "@types/cacheable-request" "^6.0.1"
+    "@types/responselike" "^1.0.0"
+    cacheable-lookup "^5.0.3"
+    cacheable-request "^7.0.1"
+    decompress-response "^6.0.0"
+    http2-wrapper "^1.0.0-beta.5.0"
+    lowercase-keys "^2.0.0"
+    p-cancelable "^2.0.0"
+    responselike "^2.0.0"
+
+got@^11.5.2:
+  version "11.5.2"
+  resolved "https://registry.yarnpkg.com/got/-/got-11.5.2.tgz#772e3f3a06d9c7589c7c94dc3c83cdb31ddbf742"
+  integrity sha512-yUhpEDLeuGiGJjRSzEq3kvt4zJtAcjKmhIiwNp/eUs75tRlXfWcHo5tcBaMQtnjHWC7nQYT5HkY/l0QOQTkVww==
   dependencies:
     "@sindresorhus/is" "^3.0.0"
     "@szmarczak/http-timer" "^4.0.5"

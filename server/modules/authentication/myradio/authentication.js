@@ -1,7 +1,6 @@
 /* global WIKI */
 
 const _ = require('lodash')
-const got = require('got').default
 
 const MyRadioStrategy = require('@ury1350/passport-myradio')
 
@@ -27,8 +26,6 @@ module.exports = {
           providerKey: 'myradio'
         })
 
-        const officersCache = {}
-
         const myradioGroups = []
 
         // Process officerships
@@ -38,37 +35,14 @@ module.exports = {
             continue
           }
 
-          // Pull up the officer info from MyRadio
-          let officer
-          if (officership.officerid in officersCache) {
-            officer = officersCache[officership.officerid]
-          } else {
-            const officerRes = await got.get(
-              conf.myradioApiBaseUrl + `/v2/officer/${officership.officerid}?api_key=${conf.myradioApiKey}`,
-              {
-                responseType: 'json',
-                headers: {
-                  'User-Agent': 'Wiki.js-Auth-MyRadio'
-                }
-              }
-            ).json()
-            if (officerRes.status !== 'OK') {
-              cb(new Error(userInfo))
-              return
-            } else {
-              officer = officerRes.payload
-              officersCache[officer.officerid] = officer
-            }
-          }
-
           // Ignore historical teams
-          if (officer.status !== 'c') {
+          if (officership.officer.status !== 'c') {
             continue
           }
 
           // Check if that group exists
           const group = await WIKI.models.groups.query().findOne({
-            name: 'MyRadio/Teams/' + officer.team.name
+            name: 'MyRadio/Teams/' + officership.officer.team.name
           })
           if (group) {
             myradioGroups.push(group)
@@ -89,6 +63,15 @@ module.exports = {
           })
           if (officersGroup) {
             myradioGroups.push(officersGroup)
+          }
+        }
+
+        if (userInfo.officerships.filter(x => x.till_date === null && x.officer.status !== 'm').length > 0) {
+          const committeeGroup = await WIKI.models.groups.query().findOne({
+            name: 'MyRadio/Committee'
+          })
+          if (committeeGroup) {
+            myradioGroups.push(committeeGroup)
           }
         }
 
